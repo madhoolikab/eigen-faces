@@ -3,7 +3,7 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 
-path='./data'
+path='./yale-face-database'
 image_paths = [os.path.join(path, f) for f in os.listdir(path)]
 images = []
 
