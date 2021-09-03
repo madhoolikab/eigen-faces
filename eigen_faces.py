@@ -3,16 +3,12 @@ import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
 
-path='./yale-face-database'
+# Read images
+path='D:\Sem_1\DIP\yale-face-database\data'
 image_paths = [os.path.join(path, f) for f in os.listdir(path)]
-images = []
-
-for image_path in image_paths:
-    image_pil = Image.open(image_path).convert('L')
-    image = np.array(image_pil, 'uint8')
-    images.append(image)
-
+images = [plt.imread(image_path, 0) for image_path in image_paths]
 A = np.array([face.flatten() for face in images]).T
+
 M, N = images[0].shape
   
 mean = A.sum(axis=1)/len(images)
